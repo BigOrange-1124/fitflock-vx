@@ -1,0 +1,34 @@
+<view style="position: relative; left: 0rpx; top: 404rpx">
+
+  <t-cell-group theme="card" style="font-family: 'KaiTi';">
+    <t-cell url="/pages/mine/userinfo/userinfo"  title="个人资料" leftIcon="user" hover arrow />
+
+    <t-cell bind:click="share" title="分享小程序" leftIcon="share" hover arrow />
+    <button open-type="contact" bindcontact="handleContact" style="width: 100%;padding: 0;">
+      <t-cell title="联系客服"  leftIcon="service" hover arrow />
+    </button>
+    <button open-type="feedback" bindcontact="handleContact" style="width: 100%;padding: 0;">
+      <t-cell title="意见反馈"  leftIcon="mail" hover arrow />
+    </button>
+  </t-cell-group>
+
+</view>
+<view style="position: relative; width: 230rpx; height: 360rpx; left: 520rpx; top: -396rpx; display: block; box-sizing: border-box">
+
+  <t-avatar class="avatar-example" size="large" image="{{image}}">
+  </t-avatar>
+
+</view>
+<view style="position: relative; width: 503rpx; background: 0; height: 360rpx; display: block; box-sizing: border-box; left: 18rpx; top: -756rpx;">
+  <view style="width: 85rpx; height: 86rpx; display: block; box-sizing: border-box; position: relative; left: 649rpx; top: 76rpx">
+    <t-icon name="{{gender}}" style="color:{{color}};position: relative; " size="48rpx" data-name="t-icon">
+    </t-icon>
+  </view>
+  <view>
+    <text class="nickname" style="position: relative; left: 60rpx; top: 31rpx;font-family: 'KaiTi';">{{nickname}}</text>
+  </view>
+  <view>
+    <text class="uuid" style="position: relative; left: 546rpx; top: 65rpx; font-size: 12px">ID:{{uuid}}</text>
+  </view>
+
+</view>

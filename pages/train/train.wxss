@@ -1,0 +1,63 @@
+page {
+  background: #151965;
+    /* background: linear-gradient(to top right, rgb(255, 242, 242), rgb(255, 239, 239), rgb(255, 255, 240), rgb(245, 255, 245), rgb(242, 242, 255), rgb(249, 242, 255), rgb(253, 237, 253));*/
+}
+
+.topView .submit-Button {
+  position: absolute;
+  right: 40rpx;
+  --td-button-medium-height: 75rpx;
+  width: 150rpx !important; 
+  font-family: 'KaiTi';
+  font-size: 40rpx;
+  background: linear-gradient(to right, #9346f6, #c47ba6, #f9ba50);
+  /* background-color: #b277ff; */
+}
+.topView {
+  font-family: 'KaiTi';
+  height: 80rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to left, #9346f6, #c47ba6, #f9ba50);
+  /* background-color: #898ab4 ; 可选：如果需要背景色的话 */
+  z-index: 999; /* 可选：如果需要覆盖其他内容的话 */
+}
+  
+.scroll-wrapper {
+    margin-top: 80rpx;
+    padding: 20rpx;
+    font-family: "KaiTi";
+    margin-bottom: 100rpx;
+  }
+  
+  .action-details {
+    margin-bottom: 20rpx;
+    font-family: "KaiTi";
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50rpx;
+  }
+
+  .delete-row-button {
+    margin-top: 30rpx;
+    --td-button-danger-bg-color: #ffffff;
+    --td-button-danger-color: #ff0000;
+  }
+
+.add-row-button{
+  --td-button-default-bg-color: #FDE767;
+}
+
+.addAction-button {
+  width: 240rpx !important; 
+  --td-button-default-bg-color: #F3B95F;
+  font-family: "KaiTi" !important;
+  font-size: 40rpx !important;
+  bottom: 40rpx;
+}

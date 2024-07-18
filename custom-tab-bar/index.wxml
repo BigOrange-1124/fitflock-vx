@@ -1,0 +1,5 @@
+<t-tab-bar value="{{value}}" bindchange="onChange" color="{{['#0EBD8D', 'rgba(0, 0, 0, .9)']}}">
+  <t-tab-bar-item wx:for="{{tabBar}}" wx:for-item="item" wx:for-index="index" wx:key="index" icon="{{item.icon}}" value="{{item.value}}">
+    {{item.label}}
+  </t-tab-bar-item>
+</t-tab-bar>

@@ -1,0 +1,19 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  font-family: "KaiTi" , sans-serif;
+
+} 
+page {
+  --td-brand-color: #6895D2;
+  /* --td-success-color: #37b94c; */
+  --td-success-color: var(--td-success-color, #00a870);
+  --td-warning-color: var(--td-warning-color, #ed7b2f);
+  --td-error-color: var(--td-error-color, #e34d59);
+}

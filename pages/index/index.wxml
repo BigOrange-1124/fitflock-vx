@@ -1,0 +1,29 @@
+<view class="swiper-box" style="margin: 0px;">
+  <t-swiper
+    current="{{1}}"
+    autoplay="{{autoplay}}"
+    duration="{{duration}}"
+    interval="{{interval}}"
+    navigation="{{navigation}}"
+    direction="vertical"
+    paginationPosition="{{paginationPosition}}"
+    list="{{swiperList}}"
+    height="280px"
+  >
+  </t-swiper>
+</view>
+
+
+<!-- <text>版本号v1.0.3
+首页
+待开发~~~
+功能：
+1.统计
+2.排行榜
+3.开始训练
+</text> -->
+
+<view class="button-example">
+  <t-button theme="primary" style="background: linear-gradient(to right, #fa6aaf,#7464fb);" class="buttona" bind:tap="gotoRecordCalendar" size="large" shape="round">训练日历</t-button>
+<t-button theme="primary" style="background: linear-gradient(to right, #fa6aaf,#7464fb);" class="buttona" bind:tap="gotoTrain" size="large" shape="round">开始训练</t-button>
+</view>

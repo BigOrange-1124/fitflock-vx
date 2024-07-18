@@ -1,0 +1,46 @@
+page{
+  background: #352b6a;
+  /* background: linear-gradient(to bottom right, rgb(255, 242, 242), rgb(255, 239, 239), rgb(255, 255, 240), rgb(245, 255, 245), rgb(242, 242, 255), rgb(249, 242, 255), rgb(253, 237, 253)); */
+}
+.person-info {
+  font-family: "KaiTi", sans-serif;
+}
+
+.person-info__btn {
+  background-color: #fa550f;
+  color: #fff;
+  border: none;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.person-info__wrapper {
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  padding: 16rpx;
+}
+
+.avatar-wrapper {
+  width: 100px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 40px;
+  background: #070d3162;
+}
+
+.avatar {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.panel-item {
+  margin-bottom: 32rpx;
+}
+
+.panel-item::after {
+  border: 0;
+}

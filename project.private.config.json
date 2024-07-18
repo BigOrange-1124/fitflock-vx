@@ -1,0 +1,72 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "FitFlock",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false,
+    "autoAudits": true
+  },
+  "libVersion": "3.3.4",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/train/chooseAction/chooseAction",
+          "pathName": "pages/train/chooseAction/chooseAction",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/group/group",
+          "pathName": "pages/group/group",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人记录日历",
+          "pathName": "pages/index/recordCalendar/recordCalendar",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/train/train",
+          "pathName": "pages/train/train",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/sort/sort",
+          "pathName": "pages/sort/sort",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人中心",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人资料",
+          "pathName": "pages/mine/userinfo/userinfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "修改姓名",
+          "pathName": "pages/mine/userinfo/name/name",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

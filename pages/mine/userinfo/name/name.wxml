@@ -1,0 +1,17 @@
+<view class="name-edit">
+  <form bindsubmit="nameinput">
+    <t-input
+    borderless
+    name="nickname"
+    model:value="{{nameValue}}"
+    placeholder="请输入文字"
+    label="昵称"
+    clearable
+    bind:clear="clearContent"
+    type="nickname"
+    maxlength="{{10}}"
+  />
+  <view class="name-edit__input--desc"> 最多可输入10个字 </view>
+  <t-button type="submit" block shape="round" disabled="{{!nameValue}}">保存</t-button>
+  </form>
+</view>

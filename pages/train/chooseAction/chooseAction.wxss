@@ -1,0 +1,106 @@
+.page {
+  /* background: linear-gradient(to bottom right, rgb(255, 242, 242), rgb(255, 239, 239), rgb(255, 255, 240), rgb(245, 255, 245), rgb(242, 242, 255), rgb(249, 242, 255), rgb(253, 237, 253)); */
+}
+
+.page .round-image {
+  border-radius: 12rpx;
+}
+
+.side-bar-wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.side-bar-wrapper .content {
+  flex: 1;
+  transition: transform 0.3s ease;
+}
+
+.side-bar-wrapper .section {
+  padding: 32rpx 0;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #f8e8eed8;
+}
+
+.side-bar-wrapper .image {
+  width: 140rpx;
+  height: 140rpx;
+  border: 2rpx solid #e79ff093;
+}
+
+.container {
+  width: 100%;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.section {
+  height: 100%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.sub-title {
+  font-weight: bold;
+  margin: 10rpx 0; /* 上下间距 */
+  font-size: 18px; /* 字体大小 */
+  padding-left: 30rpx;
+  font-family: "KaiTi", sans-serif;
+  position: relative; /* 相对定位，以便添加打点 */
+  color: #310a18;
+}
+
+.sub-title::before {
+  content: "•"; /* 使用圆点作为内容 */
+  color: #bd40ce; /* 圆点颜色 */
+  font-size: 18px; /* 圆点大小 */
+  margin-right: 5rpx; /* 圆点与文字间距 */
+  position: absolute; /* 绝对定位 */
+  left: 0; /* 左侧对齐 */
+  top: 50%; /* 垂直居中 */
+  transform: translateY(-50%); /* 垂直居中 */
+}
+
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(50% - 40rpx) !important; /* 每行两个项目，间距为 20rpx */
+  padding: 10rpx; /* 调整内边距 */
+  padding-top: 60rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e4a7bd38; /* 背景色为白色 */
+  border-radius: 20rpx; /* 添加圆角 */
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  margin-bottom: 20rpx; /* 调整下边距 */
+}
+
+.image {
+  width: 90rpx; /* 调整图片宽度 */
+  height: auto;
+}
+
+.text {
+  margin-top: 10rpx; /* 调整文字上边距 */
+  text-align: center;
+  font-size: 16px; /* 调整文字字体大小 */
+  font-weight: bold;
+  font-family: "KaiTi", sans-serif;
+}

@@ -1,0 +1,116 @@
+<t-message id="t-message" />
+<t-toast id="t-toast" />
+<!--component/calendar/calendar.wxml-->
+<view class="calendar">
+    <view class="title">
+        <view class="header-wrap">
+            <view class="flex">
+                <view class="title">{{title}}</view>
+                <view class="month">
+                    <block wx:if="{{title}}">
+                        (
+                    </block>
+                    {{selectDay.year}}年{{selectDay.month}}月
+                    <block wx:if="{{title}}">
+                        )
+                    </block>
+                </view>
+            </view>
+            <block wx:if="{{goNow}}">
+                <view wx:if="{{open && !(nowDay.year==selectDay.year&&nowDay.month==selectDay.month&&nowDay.day==selectDay.day)}}" class="today" bindtap="switchNowDate">
+                    今日
+                </view>
+            </block>
+        </view>
+
+    </view>
+
+    <!-- 日历头部 -->
+    <view class="flex-around calendar-week">
+        <view class="view">一</view>
+        <view class="view">二</view>
+        <view class="view">三</view>
+        <view class="view">四</view>
+        <view class="view">五</view>
+        <view class="view">六</view>
+        <view class="view">日</view>
+    </view>
+    <!-- 日历主体 -->
+    <swiper class="swiper" style="height:{{swiperHeight}}rpx" bindchange="swiperChange" circular="{{true}}" current="{{swiperCurrent}}" duration="{{swiperDuration}}">
+        <swiper-item wx:for="{{[dateList0, dateList1, dateList2]}}" wx:for-index="listIndex" wx:for-item="listItem" wx:key="listIndex">
+            <view class="flex-start flex-wrap calendar-main" style="height:{{listItem.length/7*82}}rpx">
+                <view wx:for="{{listItem}}" wx:key="dateList" class="day">
+                    <view class="bg {{item.month === selectDay.month?spotMap['y'+item.year+'m'+item.month+'d'+item.day]?spotMap['y'+item.year+'m'+item.month+'d'+item.day]:'':''}} {{(item.year === nowDay.year && item.month === nowDay.month && item.day === nowDay.day) ? 'now' : ''}} {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day && oldCurrent === listIndex ?'select':''): 'other-month'}}" catchtap="selectChange" data-day="{{item.day}}" data-year="{{item.year}}" data-month="{{item.month}}">
+                        {{item.day}}
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view catchtap="openChange" class="flex list-open">
+        <view class="icon {{open?'fold':'unfold'}}"></view>
+    </view>
+</view>
+
+<view class="scroll-wrapper">
+    <!-- 滚动屏 -->
+    <scroll-view class="scroll-view" scroll-y scroll-with-animation scroll-into-view="{{scrollIntoView}}" bindscroll="onScroll">
+        <!-- 顶部面板 -->
+        <view class="top-panel">
+            <t-button t-class="wrapper" theme="primary" size="large" variant="outline" bind:tap="showDialog" block style="font-family: 'KaiTi';">
+                {{groupList.length > 0 ? groupList[0].groupName : '点此创建或加入小组' }}
+            </t-button>
+            <!-- <t-tabs defaultValue="{{value}}" theme="card" bind:change="onTabsChange">
+                <t-tab-panel wx:for="{{groupList}}" wx:key="groupId" label="{{item.groupName}}" value="{{index}}">
+                    <view>
+                        <text>小组代码：{{item.groupId}}</text>
+                    </view>
+                </t-tab-panel>
+            </t-tabs> -->
+            <!-- 这里放置您的顶部内容 -->
+        </view>
+
+        <!-- 用户列表 -->
+        <view class="user-list">
+            <!-- 这里是用户列表内容 -->
+            <t-collapse theme="card" wx:for="{{actionList.recordGroupDate1VoList}}" wx:key="userId" wx:for-index="panelIndex">
+                <t-collapse-panel header="{{item.nickName}}({{item.allCapacity}}kg)" value="{{0}}" data-panel-index="{{index}}">
+                    <!-- 用户对应的动作列表 -->
+                    <view class="action-list">
+                        <!-- 这里是用户对应的动作列表内容 -->
+                        <view class="card-row" wx:for="{{item.recordList}}" wx:key="actionId" wx:for-index="panelIndex">
+                            <view class="card">
+                                <view class="card-header-wrap">
+                                    <view class="card-header">{{item.actionName}}</view>
+                                    <view class="card-header-right">容量:{{item.capacity}}kg</view>
+                                </view>
+                                <view class="card-content">
+                                    <!-- 首行固定组数、重量和次数输入框 -->
+                                    <!-- <t-cell-group style="display: flex;padding-left: 20px;">
+                            <t-cell style="height: 0rpx;" align="bottom" title="组数" style="flex: 1;"></t-cell>
+                            <t-cell style="height: 0rpx;" align="bottom" title="重量kg" style="flex: 1;"></t-cell>
+                            <t-cell style="height: 0rpx;" align="bottom" title="次数" style="flex: 1;"></t-cell>
+                        </t-cell-group> -->
+                                    <view class="input-row">
+                                        <block wx:for="{{item.inputs}}" wx:key="label">
+                                            <view class="card-input">{{item.id}}: {{item.weight}} kg × {{item.reps}}</view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </t-collapse-panel>
+            </t-collapse>
+        </view>
+        <!-- <view class="button-container">
+            <t-button theme="primary" bind:tap="gotoCreate" size="large" shape="round">创建小组</t-button>
+            <t-button theme="primary" bind:tap="gotoInsert" size="large" shape="round">加入小组</t-button> -->
+        <!-- <t-button theme="primary" bind:tap="gotoRemove" size="large" shape="round">退出小组</t-button> -->
+        <!-- </view> -->
+        <view style="height: 180rpx;"></view>
+    </scroll-view>
+</view>
+<t-back-top theme="{{backTopTheme}}" text="{{backTopText}}" scroll-top="{{scrollTop}}" bind:to-top="onToTop" style="margin-bottom: 240rpx;"></t-back-top>
+<t-dialog visible="{{showConfirm}}" title="{{groupList[0].groupId}}--{{groupList[0].memberCount}}人" content="{{groupList[0].names}}" confirm-btn="{{ confirmBtn }}" cancel-btn="取消" bind:confirm="closeDialog" cancel-btn="退出小组" bind:cancel="gotoRemove" style="font-family: 'KaiTi';" />
+<t-dialog visible="{{showJoinConfirm}}" title="您还没有加入小组~" content="小组内可查看健身搭子的训练日常及小组日历活力点" button-layout="vertical" actions="{{ multiBtnList }}" bind:action="handleAction" style="font-family: 'KaiTi';" />

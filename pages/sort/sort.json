@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "动作库",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "t-side-bar": "tdesign-miniprogram/side-bar/side-bar",
+    "t-side-bar-item": "tdesign-miniprogram/side-bar-item/side-bar-item",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+  }
+}

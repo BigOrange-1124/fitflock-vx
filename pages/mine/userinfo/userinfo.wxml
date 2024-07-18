@@ -1,0 +1,54 @@
+<view class="person-info">
+
+  <button class="avatar-wrapper" open-type="chooseAvatar"  bindchooseavatar="onChooseAvatar" >
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button>
+  <t-cell-group>
+    <t-cell title="昵称" arrow note="{{nickName}}" data-type="name" bind:click="onClickCell_name" t-class="t-cell-class" t-class-left="order-group__left" />
+    
+    <t-cell title="性别"  arrow note="{{gender}}" data-type="gender" bind:click="onClickCell_gender" t-class="t-cell-class" t-class-left="order-group__left" />
+
+    <t-cell
+  title="出生日期"
+  hover
+  note="{{dateText || ''}}"
+  arrow
+  data-mode="date"
+  bindtap="showPicker"
+  class="test"
+  t-class="panel-item"
+  style="background-image: linear-gradient(to left bottom, rgb(255, 242, 242), rgb(255, 239, 239), rgb(255, 255, 240), rgb(245, 255, 245), rgb(242, 242, 255), rgb(249, 242, 255), rgb(253, 237, 253));"
+/>
+<!-- <t-cell title="身高（cm）" hover >
+</t-cell> -->
+
+
+
+    <!-- <t-cell bordered="{{false}}" title="手机号" arrow note="{{userInfo.phoneNumber ? userInfo.phoneNumber : '去绑定手机号'}}" data-type="phoneNumber" bind:click="onClickCell" t-class="t-cell-class" t-class-left="order-group__left" /> -->
+  </t-cell-group>
+  </view>
+
+  <t-picker
+  visible="{{genderVisible}}"
+  title="选择性别"
+  cancelBtn="取消"
+  confirmBtn="确认"
+  bindchange="onPickerChange"
+  bindpick="onColumnChange"
+  bindcancel="onPickerCancel"
+>
+  <t-picker-item options="{{genders}}"></t-picker-item>
+</t-picker>
+<t-date-time-picker
+  title="出生日期"
+  visible="{{dateVisible}}"
+  value="{{date}}"
+  mode="date"
+  defaultValue="{{date}}"
+  format="YYYY-MM-DD"
+  bindchange="onConfirm"
+  bindpick="onColumnChangeBir"
+  bindcancel="hidePicker"
+  start="{{start}}"
+  end="{{end}}"
+/>

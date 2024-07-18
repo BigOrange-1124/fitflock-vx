@@ -1,0 +1,67 @@
+<t-toast id="t-toast" />
+<t-overlay visible="{{visible}}" duration="{{500}}" bind:click="handleOverlayClick" />
+<view class="topView">
+  <text style="font-size: 28px;padding-left: 40rpx;color: #fff;">总容量: {{totalCapacity}} kg</text>
+  <t-button loading="{{loading}}" class="submit-Button" bindtap="submitData" content="提交" size="medium" style="color: #fff;"></t-button>
+</view>            
+<view class="scroll-wrapper">
+    <!-- 滚动屏 -->
+    <scroll-view class="scroll-view" scroll-y scroll-with-animation scroll-into-view="{{scrollIntoView}}" bindscroll="onScroll">
+        <!-- 顶部面板 -->
+        <view class="top-panel">
+            <!-- 这里放置您的顶部内容 -->
+        </view>
+
+        <!-- 动作列表 -->
+        <view class="action-list">
+            <!-- 这里是动作列表内容 -->
+            <t-collapse theme="card" wx:for="{{actionList}}" wx:key="actionId" wx:for-index="panelIndex" >
+                <t-collapse-panel header="{{item.actionName}}({{item.actionCapacity}}kg)" value="{{panelIndex}}" data-panel-index="{{index}}">
+                    <view class="action-details">
+                        <!-- 首行固定组数、重量和次数输入框 -->
+                        <t-cell-group style="display: flex;padding-left: 20px;">
+                            <t-cell align="bottom" title="组数" style="flex: 1;"></t-cell>
+                            <t-cell align="bottom" title="重量kg" style="flex: 1;"></t-cell>
+                            <t-cell align="bottom" title="次数" style="flex: 1;"></t-cell>
+                        </t-cell-group>
+                        <t-cell-group wx:for="{{item.inputs}}" wx:key="label" style="display: flex;" value="{{rowIndex}}">
+                            <t-input align="center" type="number" value="{{item.id}}" disabled="true" />
+                            <t-input align="center" type="digit" maxlength="5" value="{{item.weight}}" bindchange="onInputChange" data-panel-index="{{panelIndex}}" data-action-index="{{index}}" data-input-index="1" />
+                            <t-input align="center" type="number" maxlength="3" value="{{item.reps}}" bindchange="onInputChange" data-panel-index="{{panelIndex}}" data-action-index="{{index}}" data-input-index="2" />
+                            <t-button class="delete-row-button" theme="danger" size="extra-small" icon="minus-circle" shape="circle" bindtap="deleteRow" data-panel-index="{{panelIndex}}" data-action-index="{{index}}"></t-button>
+                        </t-cell-group>
+                        <view class="button-container">
+                            <!-- <t-button class="delete-button" theme="danger" size="small" icon="minus-circle" shape="circle" aria-label="删除一行" bindtap="deleteRow" data-panel-index="{{panelIndex}}" data-action-index="{{index}}"></t-button> -->
+                            <t-button class="add-row-button" size="small" icon="add" shape="circle" aria-label="新增一行" bindtap="addRow" data-panel-index="{{panelIndex}}" data-action-id="{{item.actionId}}"></t-button>
+                            <t-button class="delete-panel-button" theme="danger" size="small" icon="delete" shape="circle" aria-label="删除动作" bindtap="deletePanel" data-panel-index="{{panelIndex}}"></t-button>
+                        </view>
+                    </view>
+                </t-collapse-panel>
+            </t-collapse>
+        </view>
+<view class="button-container">
+  <t-button class="addAction-button" bindtap="handleClick" content="添加动作" size="medium" shape="round"></t-button>
+  </view>
+
+        <!-- 按钮 -->
+        <!-- <view class="button-container-bottom">
+            <t-button class="submit-button" bindtap="submitData" style="background-color: #00e0ff;" content="提交" size="large" icon="check" shape="round"></t-button>
+        </view> -->
+        <!-- <t-fab style="padding-bottom: 40%;" icon="add" bind:click="handleClick" aria-label="增加"></t-fab>
+        <t-fab style="padding-bottom: 20%;" icon="check" bind:click="submitData" aria-label="提交" ></t-fab> -->
+    </scroll-view>
+</view>
+<t-back-top
+  theme="{{backTopTheme}}"
+  text="{{backTopText}}"
+  scroll-top="{{scrollTop}}"
+  bind:to-top="onToTop"
+></t-back-top>
+<t-dialog
+  visible="{{showDeleteConfirm}}"
+  content="告知当前状态、信息和解决方法，等内容。描述文案尽可能控制在三行内"
+  confirm-btn="{{ { content: '警示操作', variant: 'base', theme: 'danger' } }}"
+  cancel-btn="取消"
+  bind:confirm="closeDialog"
+  bind:cancel="closeDialog"
+/>

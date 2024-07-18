@@ -1,0 +1,37 @@
+<view class="side-bar-wrapper">
+  <!-- 侧边栏 -->
+  <t-side-bar value="{{sideBarIndex}}" bind:change="onSideBarChange" class="sidebar">
+    <t-side-bar-item
+      wx:for="{{categories}}"
+      wx:key="index"
+      value="{{index}}"
+      label="{{item.partName}}"
+      disabled="{{item.disabled}}"
+      badge-props="{{item.badgeProps}}"
+      style="font-family:'KaiTi', Courier, monospace;"
+    />
+  </t-side-bar>
+  
+  <!-- 滑动视图 -->
+  <view class="container">
+    <swiper class="swiper" vertical="{{true}}" current="{{sideBarIndex}}" bindchange="onSwiperChange">
+      <swiper-item wx:for="{{categories}}" wx:key="index">
+        <scroll-view class="section" scroll-y scroll-top="{{scrollTop}}" scroll-with-animation show-scrollbar="{{false}}">
+          <block wx:for="{{item.actionTypeList}}" wx:key="index" wx:for-item="actionType">
+            <!-- 显示动作类型的标题 -->
+            <view class="sub-title">{{actionType.actionTypeName}}</view>
+            <view class="item-container" style="display: flex; flex-wrap: wrap;">
+              <block wx:for="{{actionType.actionList}}" wx:key="index" wx:for-item="action">
+                <!-- 显示动作的图片和名称 -->
+                <button class="item" style="width: 50%;" bind:tap="handleActionClick" data-actionid="{{action.actionId}}" data-actionname="{{action.actionName}}">
+                  <!-- <t-image shape="round" src="{{action.actionPicture}}" lazy t-class="image" /> -->
+                  <view class="text">{{action.actionName}}</view>
+                </button>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

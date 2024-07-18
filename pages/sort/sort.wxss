@@ -1,0 +1,136 @@
+.page {
+  /* background: linear-gradient(to bottom right, rgb(255, 242, 242), rgb(255, 239, 239), rgb(255, 255, 240), rgb(245, 255, 245), rgb(242, 242, 255), rgb(249, 242, 255), rgb(253, 237, 253)); */
+}
+
+.page .round-image {
+  border-radius: 12rpx;
+}
+
+.side-bar-wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.side-bar-wrapper .content {
+  flex: 1;
+  transition: transform 0.3s ease;
+}
+
+.side-bar-wrapper .section {
+  padding: 32rpx 0;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #f2f5ff;
+  /* background-color: rgba(233, 252, 247, 0.541); */
+}
+
+.side-bar-wrapper .image {
+  width: 180rpx;
+  height: 180rpx;
+  border: 2rpx solid #afc2ff;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 120rpx;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.section {
+  height: 100%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: rgb(210, 240, 245);
+}
+
+.sub-title {
+  font-weight: bold;
+  margin: 10rpx 0; /* 上下间距 */
+  font-size: 28px; /* 字体大小 */
+  padding-left: 30rpx;
+  font-family: "KaiTi", sans-serif;
+  position: relative; /* 相对定位，以便添加打点 */
+  color: rgb(7, 0, 0);
+}
+
+.sub-title::before {
+  content: "•"; /* 使用圆点作为内容 */
+  color: #180006; /* 圆点颜色 */
+  font-size: 18px; /* 圆点大小 */
+  margin-right: 5rpx; /* 圆点与文字间距 */
+  position: absolute; /* 绝对定位 */
+  left: 0; /* 左侧对齐 */
+  top: 50%; /* 垂直居中 */
+  transform: translateY(-50%); /* 垂直居中 */
+}
+
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 项目之间均匀分布 */
+}
+
+
+.item {
+  width: calc(50% - 30rpx) !important;
+  padding: 10px; /* 调整内边距 */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d3d0e080;
+  /* background: linear-gradient(to right bottom,#f86db1, #7464fb); */
+  /* background-color: #FCBAD3; */
+  border-radius: 20px; /* 添加圆角 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  margin-bottom: 20px; /* 调整下边距 */
+  margin-right: 20px; /* 左右间距 */
+  margin-left: 20px; /* 左右间距 */
+  margin-top: 20px; /* 上下间距 */
+}
+
+
+
+.image {
+  width: 90rpx; /* 调整图片宽度 */
+  height: auto;
+}
+
+.text {
+  margin-top: 20rpx; /* 调整文字上边距 */
+  text-align: center;
+  font-size: 16px; /* 调整文字字体大小 */
+  font-family: "KaiTi", sans-serif;
+  color: rgb(14, 0, 0);
+}
+
+.sidebar {
+  --td-side-bar-width: 160rpx
+}
+
+.wrapper {
+  margin-bottom: 32rpx;
+}
+
+.long-content {
+  height: 576rpx;
+  margin-top: 16rpx;
+  font-size: 32rpx;
+  color: #888;
+}
+
+.long-content .content-container {
+  white-space: pre-line;
+}
